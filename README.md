@@ -4,15 +4,13 @@ AndBrowser is a shitty browser I'm making<br/>
 "Wow, AndBrowser is great!" said nobody ever.
 ## Features
 - Uses the Gecko web browsing engine.
-- Has nice back and forward buttons!
-- Shows you if a site is secure.
-- You can type in the URL Bar!
-- ejo
+- Works as a standard web browser, missing a few features.
 ## Todo
-- Settings
 - Prettier UI
+- Browser settings
+- Download manager
+- Refresh and home buttons
 - Bookmarks
 - Tabs
-- A few more things
 ### Screenshot
 <img src="https://user-images.githubusercontent.com/31165723/49145385-8ab5b780-f2b4-11e8-8c00-e62dd6f91e57.png" alt="screenshot" width="512"></img>
