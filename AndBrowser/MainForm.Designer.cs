@@ -35,21 +35,12 @@ namespace AndBrowser
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.browser = new Gecko.GeckoWebBrowser();
+			this.back = new System.Windows.Forms.Button();
+			this.forward = new System.Windows.Forms.Button();
 			this.URLBar = new System.Windows.Forms.TextBox();
-			this.eventLog1 = new System.Diagnostics.EventLog();
-			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
+			this.secureLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
-			// 
-			// statusStrip1
-			// 
-			this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-			this.statusStrip1.Location = new System.Drawing.Point(0, 520);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(1168, 22);
-			this.statusStrip1.TabIndex = 0;
-			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// browser
 			// 
@@ -58,47 +49,90 @@ namespace AndBrowser
 			| System.Windows.Forms.AnchorStyles.Right)));
 			this.browser.Location = new System.Drawing.Point(0, 56);
 			this.browser.Name = "browser";
-			this.browser.Size = new System.Drawing.Size(1168, 461);
+			this.browser.Size = new System.Drawing.Size(1272, 544);
 			this.browser.TabIndex = 1;
 			this.browser.UseHttpActivityObserver = false;
+			this.browser.Navigated += new System.EventHandler<Gecko.GeckoNavigatedEventArgs>(this.BrowserNavigated);
+			this.browser.CanGoBackChanged += new System.EventHandler(this.BrowserCanGoBackChanged);
+			this.browser.CanGoForwardChanged += new System.EventHandler(this.BrowserCanGoForwardChanged);
+			// 
+			// back
+			// 
+			this.back.BackColor = System.Drawing.SystemColors.Control;
+			this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.back.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.back.FlatAppearance.BorderSize = 0;
+			this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.back.ForeColor = System.Drawing.Color.Silver;
+			this.back.Location = new System.Drawing.Point(12, 12);
+			this.back.Name = "back";
+			this.back.Size = new System.Drawing.Size(34, 34);
+			this.back.TabIndex = 3;
+			this.back.Text = "◀️";
+			this.back.UseVisualStyleBackColor = false;
+			this.back.Click += new System.EventHandler(this.BackClick);
+			// 
+			// forward
+			// 
+			this.forward.BackColor = System.Drawing.SystemColors.Control;
+			this.forward.FlatAppearance.BorderSize = 0;
+			this.forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.forward.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.forward.ForeColor = System.Drawing.Color.Silver;
+			this.forward.Location = new System.Drawing.Point(56, 12);
+			this.forward.Name = "forward";
+			this.forward.Size = new System.Drawing.Size(34, 34);
+			this.forward.TabIndex = 4;
+			this.forward.Text = "▶️ ";
+			this.forward.UseVisualStyleBackColor = false;
+			this.forward.Click += new System.EventHandler(this.ForwardClick);
 			// 
 			// URLBar
 			// 
 			this.URLBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.URLBar.BackColor = System.Drawing.SystemColors.Window;
-			this.URLBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.URLBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.URLBar.Location = new System.Drawing.Point(12, 12);
+			this.URLBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.URLBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.URLBar.Location = new System.Drawing.Point(141, 12);
 			this.URLBar.Name = "URLBar";
-			this.URLBar.Size = new System.Drawing.Size(1144, 38);
-			this.URLBar.TabIndex = 2;
+			this.URLBar.Size = new System.Drawing.Size(1119, 34);
+			this.URLBar.TabIndex = 6;
 			this.URLBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.URLBarKeyDown);
 			// 
-			// eventLog1
+			// secureLabel
 			// 
-			this.eventLog1.SynchronizingObject = this;
+			this.secureLabel.BackColor = System.Drawing.Color.White;
+			this.secureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.secureLabel.ForeColor = System.Drawing.Color.ForestGreen;
+			this.secureLabel.Location = new System.Drawing.Point(101, 12);
+			this.secureLabel.Name = "secureLabel";
+			this.secureLabel.Size = new System.Drawing.Size(34, 34);
+			this.secureLabel.TabIndex = 7;
+			this.secureLabel.Text = "🔒";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1168, 542);
+			this.ClientSize = new System.Drawing.Size(1272, 599);
+			this.Controls.Add(this.secureLabel);
 			this.Controls.Add(this.URLBar);
+			this.Controls.Add(this.forward);
+			this.Controls.Add(this.back);
 			this.Controls.Add(this.browser);
-			this.Controls.Add(this.statusStrip1);
 			this.Name = "MainForm";
 			this.Text = "AndBrowser";
-			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private GeckoWebBrowser browser;
+        private System.Windows.Forms.Button forward;
+        private System.Windows.Forms.Button back;
         private System.Windows.Forms.TextBox URLBar;
-        private System.Diagnostics.EventLog eventLog1;
+        private System.Windows.Forms.Label secureLabel;
     }
 }

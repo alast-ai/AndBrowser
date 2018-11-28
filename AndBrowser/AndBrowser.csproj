@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="app.manifest" />
     <None Include="Firefox\AccessibleHandler.dll" />
     <None Include="Firefox\AccessibleMarshal.dll" />
     <None Include="Firefox\d3dcompiler_47.dll" />
