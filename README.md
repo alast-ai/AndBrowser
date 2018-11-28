@@ -1,6 +1,18 @@
+<img src="https://user-images.githubusercontent.com/31165723/49144908-64434c80-f2b3-11e8-8fab-4426bdf9a847.png" alt="andbrowser" width="256"></img>
 # AndBrowser
-A shitty browser I'm working on.<br/>
-This is nothing exciting, and I doubt anything will come of it.<br/>
-<i>(the most exciting thing that will ever happen to this will be me abandoning it.)</i><br/>
-Anyway, take this screenshot.<br/>
-![image](https://user-images.githubusercontent.com/31165723/49069885-3ee50e80-f1df-11e8-99a0-e8fe1e7ac097.png)
+AndBrowser is a shitty browser I'm making<br/>
+"Wow, AndBrowser is great!" said nobody ever.
+## Features
+- Uses the Gecko web browsing engine.
+- Has nice back and forward buttons!
+- Shows you if a site is secure.
+- You can type in the URL Bar!
+- ejo
+## Todo
+- Settings
+- Prettier UI
+- Bookmarks
+- Tabs
+- A few more things
+### Screenshot
+<img src="https://user-images.githubusercontent.com/31165723/49145385-8ab5b780-f2b4-11e8-8c00-e62dd6f91e57.png" alt="screenshot" width="512"></img>
